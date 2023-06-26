@@ -1,38 +1,52 @@
-Role Name
-=========
+# Ansible Role: Ubuntu STIG
 
-A brief description of the role goes here.
+This [Ansible](https://www.ansible.com) role will apply the current [DISA Security Technical Implementation Guide (STIG)](https://public.cyber.mil/stigs) 
+configuration to an Ubuntu system.  This role is neither sponsored by nor maintained by the Department of Defense or the Defense Inforamtion System Agency.
+This is a personal project of mine to have a role that is easier to apply and maintain than the official [DISA release](https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_CAN_Ubuntu_20-04_LTS_V1R8_STIG_Ansible.zip).
 
-Requirements
-------------
+**WARNING: DO NOT BLINDLY ACCEPT ALL STIG CONFIGURATIONS WHEN SECURING YOUR SERVER.**  Take the time to review each setting for applicability in your use case.
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+## Version Information
 
-Role Variables
---------------
+* Version: 1.8.0
+* Baseline Ansible Role: [V1 R8 STIG Ansible Role](https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_CAN_Ubuntu_20-04_LTS_V1R8_STIG_Ansible.zip)
+* STIG Release: [V1 R8 STIG](https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_CAN_Ubuntu_20-04_LTS_V1R8_STIG.zip)
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+## Requirements
 
-Dependencies
-------------
+Ubuntu 20.04 (Focal Fossa) or 22.04 (Jammy Jellyfish) are required for this role for now.  I intend to extend this role to add the
+Ubuntu 18.04 (Bionic Beaver) STIG configuration in a future release.
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+## Role Variables
 
-Example Playbook
-----------------
+There are a significant number of role variables associated with this implementation.  The official release maintains two variables for each configuration setting:
+
+* ubuntu2004STIG_stigrule_VULNID_Manage: A Boolean value specifying whether this settings should be configured or skipped (True = managed)
+* ubuntu2004STIG_stigrule_VULNID__SETTINGNAME_Value: The configuration value to set
+
+These values are set in the [defaults/main.yml] file and should be reviewed for any deviations required for your business application.
+
+DISA provides an easy to use [STIG Viewer](https://public.cyber.mil/stigs/srg-stig-tools/) application to review the various settings.  Download this tool and
+the associated STIG referenced above.
+
+## Dependencies
+
+There are no other dependencies for this role.  However, I will maintain an additional ansible role to apply additional STIG settings that are not covered by the official Ansible release.
+
+## Example Playbook
+
 
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
     - hosts: servers
       roles:
-         - { role: username.rolename, x: 42 }
+         - role: ubuntu_stig
 
-License
--------
 
-BSD
+## License
 
-Author Information
-------------------
+MIT
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+## Author Information
+
+Alex Ackerman, Twitter @Darkhonor
