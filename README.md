@@ -6,11 +6,16 @@ This is a personal project of mine to have a role that is easier to apply and ma
 
 **WARNING: DO NOT BLINDLY ACCEPT ALL STIG CONFIGURATIONS WHEN SECURING YOUR SERVER.**  Take the time to review each setting for applicability in your use case.
 
+The STIG compliance rate mentioned below is measured by running the [SCAP Compliance Checker (SCC)](https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/scc-5.7.2_ubuntu18_ubuntu20_amd64_bundle.zip)
+tool with the baseline release against a system that has applied this role.  No additional settings will be added to this role.  Instead a supplementary ansible role
+will be maintained to increase this value.
+
 ## Version Information
 
 * Version: 1.8.0
 * Baseline Ansible Role: [V1 R8 STIG Ansible Role](https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_CAN_Ubuntu_20-04_LTS_V1R8_STIG_Ansible.zip)
 * STIG Release: [V1 R8 STIG](https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_CAN_Ubuntu_20-04_LTS_V1R8_STIG.zip)
+* STIG Compliance: 
 
 ## Requirements
 
@@ -35,13 +40,16 @@ There are no other dependencies for this role.  However, I will maintain an addi
 
 ## Example Playbook
 
+This is a sample playbook that implements this role.  In the example shown here, the role is called and two of the STIG settings are set to not be managed.
+In this case, I am selecting **not** to configure the default DoD banner.
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
-      roles:
-         - role: ubuntu_stig
-
+```yaml
+- hosts: servers
+  roles:
+    - role: ubuntu_stig
+      ubuntu2004STIG_stigrule_238198_Manage: false
+      ubuntu2004STIG_stigrule_238214_Manage: false
+```
 
 ## License
 
