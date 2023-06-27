@@ -17,7 +17,7 @@ galaxy_info:
 
   galaxy_tags: 
     - security
-    - DISA
-    - STIG
+    - disa
+    - stig
 
 dependencies: []
