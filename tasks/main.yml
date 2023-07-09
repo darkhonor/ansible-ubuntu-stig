@@ -686,7 +686,7 @@
     path: /etc/audit/rules.d/stig.rules
     regexp: '^-a always,exit -F arch=b32 -S execve -C uid!=euid -F euid=0 -F key=execpriv$'
     line: "{{ ubuntu2004STIG_stigrule_238304__etc_audit_rules_d_stig_rules_execve_b32_euid_Line }}"
-  when: ubuntu2004TIG_stigrule_238304_Manage
+  when: ubuntu2004STIG_stigrule_238304_Manage
 # R-238304 UBTU-20-010211
 - name: stigrule_238304__etc_audit_rules_d_stig_rules_execve_b32_egid
   lineinfile:
