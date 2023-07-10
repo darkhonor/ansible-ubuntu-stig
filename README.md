@@ -15,7 +15,7 @@ will be maintained to increase this value.
 * Version: 1.8.0
 * Baseline Ansible Role: [V1 R8 STIG Ansible Role](https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_CAN_Ubuntu_20-04_LTS_V1R8_STIG_Ansible.zip)
 * STIG Release: [V1 R8 STIG](https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_CAN_Ubuntu_20-04_LTS_V1R8_STIG.zip)
-* STIG Compliance: 
+* STIG Compliance: 49.7% (84 / 169 settings compliant; 1 disabled check)
 
 ## Requirements
 
